@@ -11,6 +11,7 @@ public class StockManager
 {
     // A list of the products.
     private ArrayList<Product> stock;
+    
 
     /**
      * Initialise the stock manager.
@@ -66,5 +67,9 @@ public class StockManager
      */
     public void printProductDetails()
     {
+        for(Product producto: stock)
+        {
+            System.out.println(producto.toString());
+        }
     }
 }
