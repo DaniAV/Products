@@ -11,7 +11,6 @@ public class StockManager
 {
     // A list of the products.
     private ArrayList<Product> stock;
-    
 
     /**
      * Initialise the stock manager.
@@ -29,7 +28,7 @@ public class StockManager
     {
         stock.add(item);
     }
-    
+
     /**
      * Receive a delivery of a particular product.
      * Increase the quantity of the product by the given amount.
@@ -39,7 +38,7 @@ public class StockManager
     public void delivery(int id, int amount)
     {
     }
-    
+
     /**
      * Try to find a product in the stock with the given id.
      * @return The identified product, or null if there is none
@@ -48,16 +47,21 @@ public class StockManager
     public Product findProduct(int id)
     {
         Product busqueda = null;
-        for(Product producto: stock)
+        int var = 0;
+        while(var != 1)
         {
-            if (id == producto.getID())
+            for ( Product producto: stock)
             {
-               busqueda = producto; 
+                if (id == producto.getID())
+                {
+                    var = 1;
+                    busqueda = producto; 
+                }
             }
         }
         return busqueda;
     }
-    
+
     /**
      * Locate a product with the given ID, and return how
      * many of this item are in stock. If the ID does not
@@ -67,7 +71,15 @@ public class StockManager
      */
     public int numberInStock(int id)
     {
-        return 0;
+        int cantidad = 0;
+        for(Product producto: stock)
+        {
+            if(id == producto.getID())
+            {
+                cantidad = producto.getQuantity();
+            }
+        }
+        return cantidad;
     }
 
     /**
