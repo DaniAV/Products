@@ -37,6 +37,17 @@ public class StockManager
      */
     public void delivery(int id, int amount)
     {
+        for(Product producto: stock)
+        {
+            if(id == producto.getID())
+            {
+               producto.increaseQuantity(amount); 
+            }
+            else
+            {
+                System.out.println("No existe ningún producto con ese ID");
+            }
+        }
     }
 
     /**
@@ -49,7 +60,6 @@ public class StockManager
         Product busqueda = null;
         boolean var = false;
         int index = 0;
-        
         while(var == false && index < stock.size())
         {
             Product producto = stock.get(0);
